@@ -1,0 +1,57 @@
+{
+	"name": "dboAsaWeeklyUserAnalysisog1b",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLAzure-g1b",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "EventWeek",
+				"type": "DateTime"
+			},
+			{
+				"name": "MachineId",
+				"type": "String"
+			},
+			{
+				"name": "UserType",
+				"type": "String"
+			},
+			{
+				"name": "UserStage",
+				"type": "Int64"
+			},
+			{
+				"name": "ActiveDay",
+				"type": "Int64"
+			},
+			{
+				"name": "version",
+				"type": "String"
+			},
+			{
+				"name": "Alias",
+				"type": "String"
+			},
+			{
+				"name": "Feature",
+				"type": "String"
+			},
+			{
+				"name": "Category",
+				"type": "String"
+			},
+			{
+				"name": "FeatureCount",
+				"type": "Int64"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[AsaWeeklyUserAnalysis]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

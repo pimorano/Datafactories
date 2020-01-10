@@ -1,0 +1,31 @@
+{
+	"name": "trigger_CopyDataASAfromStoreWeeklyUserAdoption",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "ASA_ADLStoSQL_WeeklyUserAdoption",
+				"type": "PipelineReference"
+			},
+			"parameters": {
+				"windowStart": "@trigger().outputs.windowStartTime",
+				"windowEnd": "@trigger().outputs.windowEndTime"
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Hour",
+			"interval": 24,
+			"startTime": "2018-01-16T00:00:00Z",
+			"endTime": "2099-12-30T16:00:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 10,
+			"retryPolicy": {
+				"count": 3,
+				"intervalInSeconds": 120
+			},
+			"dependsOn": []
+		}
+	}
+}

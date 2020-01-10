@@ -1,0 +1,62 @@
+{
+	"name": "Customquery_ezu",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Source-SQLAzure-ezu",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "TPName",
+				"type": "String"
+			},
+			{
+				"name": "AI_BillingID",
+				"type": "Int64"
+			},
+			{
+				"name": "AI_OfferType",
+				"type": "String"
+			},
+			{
+				"name": "OrganizationName",
+				"type": "String"
+			},
+			{
+				"name": "ActiveUsers",
+				"type": "String"
+			},
+			{
+				"name": "UserAgent",
+				"type": "String"
+			},
+			{
+				"name": "Service",
+				"type": "String"
+			},
+			{
+				"name": "Ide",
+				"type": "String"
+			},
+			{
+				"name": "YearMonth",
+				"type": "String"
+			},
+			{
+				"name": "NumberOfCalls",
+				"type": "Int32"
+			},
+			{
+				"name": "IsInternal",
+				"type": "String"
+			},
+			{
+				"name": "Date",
+				"type": "DateTime"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,37 @@
+{
+	"name": "dboASA_Service_ASUovp3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLAzure-vp3",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "AI_BillingAccountId",
+				"type": "String"
+			},
+			{
+				"name": "OrganizationName",
+				"type": "String"
+			},
+			{
+				"name": "TPName",
+				"type": "String"
+			},
+			{
+				"name": "DateMonth",
+				"type": "DateTime"
+			},
+			{
+				"name": "ASU",
+				"type": "Int64"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[ASA_Service_ASU]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

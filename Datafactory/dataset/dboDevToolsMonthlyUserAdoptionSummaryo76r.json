@@ -1,0 +1,41 @@
+{
+	"name": "dboDevToolsMonthlyUserAdoptionSummaryo76r",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLAzure-76r",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "Service",
+				"type": "String"
+			},
+			{
+				"name": "Ide",
+				"type": "String"
+			},
+			{
+				"name": "EventMonth",
+				"type": "DateTime"
+			},
+			{
+				"name": "UserType",
+				"type": "String"
+			},
+			{
+				"name": "UserStage",
+				"type": "Int64"
+			},
+			{
+				"name": "UserCount",
+				"type": "Int64"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[DevToolsMonthlyUserAdoptionSummary]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

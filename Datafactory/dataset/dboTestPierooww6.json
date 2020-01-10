@@ -1,0 +1,65 @@
+{
+	"name": "dboTestPierooww6",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLAzure-ww6",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "Service",
+				"type": "String"
+			},
+			{
+				"name": "Ide",
+				"type": "String"
+			},
+			{
+				"name": "EventDate",
+				"type": "String"
+			},
+			{
+				"name": "UserId",
+				"type": "String"
+			},
+			{
+				"name": "UserType",
+				"type": "String"
+			},
+			{
+				"name": "UserStage",
+				"type": "String"
+			},
+			{
+				"name": "ActiveDay",
+				"type": "String"
+			},
+			{
+				"name": "Version",
+				"type": "String"
+			},
+			{
+				"name": "Alias",
+				"type": "String"
+			},
+			{
+				"name": "Feature",
+				"type": "String"
+			},
+			{
+				"name": "Category",
+				"type": "String"
+			},
+			{
+				"name": "FeatureCount",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[TestPiero]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

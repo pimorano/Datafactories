@@ -1,0 +1,65 @@
+{
+	"name": "CopyDataASAfromStoreMonthlyUserAdoption",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy-dbo-DevToolsMonthlyUserAdoptionSummary",
+				"description": "",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureDataLakeStoreSource",
+						"recursive": false
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 10000,
+						"preCopyScript": "Delete from DevToolsMonthlylyUserAdoptionSummary"
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"Prop_0": "Service",
+							"Prop_1": "Ide",
+							"Prop_2": "EventMonth",
+							"Prop_3": "UserType",
+							"Prop_4": "UserStage",
+							"Prop_5": "UserCount"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "MonthUserAdoptionSummarycsvi76r",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dboDevToolsMonthlyUserAdoptionSummaryo76r",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"parameters": {
+			"windowStart": {
+				"type": "String"
+			},
+			"windowEnd": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

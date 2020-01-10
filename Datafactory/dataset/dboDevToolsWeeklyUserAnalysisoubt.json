@@ -1,0 +1,65 @@
+{
+	"name": "dboDevToolsWeeklyUserAnalysisoubt",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Destination-SQLAzure-ubt",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "Service",
+				"type": "String"
+			},
+			{
+				"name": "Ide",
+				"type": "String"
+			},
+			{
+				"name": "EventWeek",
+				"type": "DateTime"
+			},
+			{
+				"name": "UserId",
+				"type": "String"
+			},
+			{
+				"name": "UserType",
+				"type": "String"
+			},
+			{
+				"name": "UserStage",
+				"type": "Int64"
+			},
+			{
+				"name": "ActiveDay",
+				"type": "Int64"
+			},
+			{
+				"name": "Version",
+				"type": "String"
+			},
+			{
+				"name": "Alias",
+				"type": "String"
+			},
+			{
+				"name": "Feature",
+				"type": "String"
+			},
+			{
+				"name": "Category",
+				"type": "String"
+			},
+			{
+				"name": "FeatureCount",
+				"type": "Int64"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[DevToolsWeeklyUserAnalysis]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

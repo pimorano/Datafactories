@@ -1,0 +1,63 @@
+{
+	"name": "CopyPipeline_sv2_ML",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_sv2",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "sparkpimoranomahipipeli-2018-08-29t01-42-38-173z/HdiSamples/HdiSamples/SensorSampleData/hvac/test.json/part-00000-498eac42-721f-48ef-bcac-2c0dfb878de3-c000.json"
+					},
+					{
+						"name": "Destination",
+						"value": "[dbo].[HvacML]"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "BlobSource",
+						"recursive": true
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 10000
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"SystemInfo": "System",
+							"prediction": "System2",
+							"probability.type": "System3"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_sv2",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_sv2",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

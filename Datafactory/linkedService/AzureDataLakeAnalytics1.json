@@ -1,0 +1,19 @@
+{
+	"name": "AzureDataLakeAnalytics1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "AzureDataLakeAnalytics",
+		"typeProperties": {
+			"accountName": "devtooltelemetryadla",
+			"servicePrincipalId": "ad8033b0-dbc7-47df-9e78-55ddd24b1a97",
+			"servicePrincipalKey": {
+				"type": "SecureString",
+				"value": "**********"
+			},
+			"tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+			"subscriptionId": "7f31cba8-b597-4129-b158-8f21a7395bd0",
+			"resourceGroupName": "devtooltelemetryrg"
+		},
+		"annotations": []
+	}
+}

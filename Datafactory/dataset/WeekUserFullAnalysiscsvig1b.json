@@ -1,0 +1,63 @@
+{
+	"name": "WeekUserFullAnalysiscsvig1b",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Source-DataLakeStore-g1b",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureDataLakeStoreFile",
+		"structure": [
+			{
+				"name": "Prop_0",
+				"type": "DateTime"
+			},
+			{
+				"name": "Prop_1",
+				"type": "String"
+			},
+			{
+				"name": "Prop_2",
+				"type": "String"
+			},
+			{
+				"name": "Prop_3",
+				"type": "Int64"
+			},
+			{
+				"name": "Prop_4",
+				"type": "Int64"
+			},
+			{
+				"name": "Prop_5",
+				"type": "String"
+			},
+			{
+				"name": "Prop_6",
+				"type": "String"
+			},
+			{
+				"name": "Prop_7",
+				"type": "String"
+			},
+			{
+				"name": "Prop_8",
+				"type": "String"
+			},
+			{
+				"name": "Prop_9",
+				"type": "Int64"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": ",",
+				"treatEmptyAsNull": true
+			},
+			"fileName": "Week-UserFullAnalysis.csv",
+			"folderPath": "v-yihou/asa/newdashboard"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

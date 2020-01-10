@@ -1,0 +1,63 @@
+{
+	"name": "CopyAsaServiceASUtoDevPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "ASA_QueryService_ASUtoSQL_ASA_Service_ASU",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource",
+						"sqlReaderQuery": "SELECT distinct TPName, AI_BillingAccountId, OrganizationName,\n                --basicinfo.StartDate,\n\t\t\t    --YearMonth,\n\t\t\t\tFORMAT(thirdOneAsu.StartDate, 'yyyy-MM') as YearMonth,\n                SUM(IIF ((MinutesRan) > =0, (StreamingUnits)*(MinutesRan), 0))/60 as ASU\n \n\t\t\t\tFrom [dbo].[NRT_PROD_JobsRunningDailyView2] as thirdOneAsu\n\t\t\t\tinner join [dbo].[NRT_Meta_SubscriptionMapping2] as secondOneAsu \n                        on thirdOneAsu.SubscriptionId=secondOneAsu.SubscriptionID\n\n\t\t\t\twhere thirdOneAsu.StartDate >='10/01/2017' --and secondOne.TPName like '%Daiml%'\n        \n\t   GROUP BY\n\t\t\t  TPName, AI_BillingAccountId, OrganizationName,\n        \t  FORMAT(thirdOneAsu.StartDate, 'yyyy-MM')"
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 10000,
+						"preCopyScript": "DELETE from ASA_Service_ASU"
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"AI_BillingAccountId": "AI_BillingAccountId",
+							"OrganizationName": "OrganizationName",
+							"TPName": "TPName",
+							"YearMonth": "DateMonth",
+							"ASU": "ASU"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Customqueryivp3",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dboASA_Service_ASUovp3",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"parameters": {
+			"windowStart": {
+				"type": "String"
+			},
+			"windowEnd": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

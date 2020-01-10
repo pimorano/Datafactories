@@ -1,0 +1,31 @@
+{
+	"name": "trigger_1515568344813",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "CopyPipeline-MonthlyAsaUser",
+				"type": "PipelineReference"
+			},
+			"parameters": {
+				"windowStart": "@trigger().outputs.windowStartTime",
+				"windowEnd": "@trigger().outputs.windowEndTime"
+			}
+		},
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Hour",
+			"interval": 24,
+			"startTime": "2018-02-01T00:00:00Z",
+			"endTime": "2018-02-02T00:00:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 10,
+			"retryPolicy": {
+				"count": 3,
+				"intervalInSeconds": 120
+			},
+			"dependsOn": []
+		}
+	}
+}

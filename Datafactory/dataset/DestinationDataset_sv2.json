@@ -1,0 +1,29 @@
+{
+	"name": "DestinationDataset_sv2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1_ML_pimomahi",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"structure": [
+			{
+				"name": "System",
+				"type": "String"
+			},
+			{
+				"name": "System2",
+				"type": "String"
+			},
+			{
+				"name": "System3",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"tableName": "[dbo].[HvacML2]"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,34 @@
+{
+	"name": "Customquery_io8y",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Source-OnPremSQL-o8y",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"structure": [
+			{
+				"name": "AI_BillingAccountId",
+				"type": "Int64"
+			},
+			{
+				"name": "OrganizationName",
+				"type": "String"
+			},
+			{
+				"name": "TPName",
+				"type": "String"
+			},
+			{
+				"name": "AI_OfferType",
+				"type": "String"
+			},
+			{
+				"name": "Ide",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

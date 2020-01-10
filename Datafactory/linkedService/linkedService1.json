@@ -1,0 +1,16 @@
+{
+	"name": "linkedService1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"type": "Kusto",
+		"typeProperties": {
+			"endpoint": "https://ddtelvscode.kusto.windows.net",
+			"servicePrincipalId": "0134dafc-70d9-471c-8b4f-5ea08830a769",
+			"servicePrincipalKey": {
+				"type": "SecureString",
+				"value": "**********"
+			}
+		},
+		"annotations": []
+	}
+}

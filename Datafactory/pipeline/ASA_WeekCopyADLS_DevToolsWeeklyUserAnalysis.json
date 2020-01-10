@@ -1,0 +1,69 @@
+{
+	"name": "ASA_WeekCopyADLS_DevToolsWeeklyUserAnalysis",
+	"properties": {
+		"activities": [
+			{
+				"name": "ASACopyfromADLStoDevToolsWeeklyUserAnalysis",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureDataLakeStoreSource",
+						"recursive": false
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 10000
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"Prop_0": "Service",
+							"Prop_1": "Ide",
+							"Prop_2": "EventWeek",
+							"Prop_3": "UserId",
+							"Prop_4": "UserType",
+							"Prop_5": "UserStage",
+							"Prop_6": "ActiveDay",
+							"Prop_7": "Version",
+							"Prop_8": "Alias",
+							"Prop_9": "Feature",
+							"Prop_10": "Category",
+							"Prop_11": "FeatureCount"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "WeekUserFullAnalysiscsviubt",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dboDevToolsWeeklyUserAnalysisoubt",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"parameters": {
+			"windowStart": {
+				"type": "String"
+			},
+			"windowEnd": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

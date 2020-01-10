@@ -1,0 +1,73 @@
+{
+	"name": "AzureDataLakeStoreFile1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStore1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureDataLakeStoreFile",
+		"structure": [
+			{
+				"name": "Service",
+				"type": "ntext"
+			},
+			{
+				"name": "Ide",
+				"type": "ntext"
+			},
+			{
+				"name": "EventWeek",
+				"type": "datetime"
+			},
+			{
+				"name": "UserId",
+				"type": "nchar(36)"
+			},
+			{
+				"name": "UserType",
+				"type": "nchar(8)"
+			},
+			{
+				"name": "UserStage",
+				"type": "bigint"
+			},
+			{
+				"name": "ActiveDay",
+				"type": "bigint"
+			},
+			{
+				"name": "Version",
+				"type": "nchar(36)"
+			},
+			{
+				"name": "Alias",
+				"type": "nchar(36)"
+			},
+			{
+				"name": "Feature",
+				"type": "nchar(128)"
+			},
+			{
+				"name": "Category",
+				"type": "nchar(64)"
+			},
+			{
+				"name": "FeatureCount",
+				"type": "bigint"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": ",",
+				"nullValue": "\\N",
+				"treatEmptyAsNull": false,
+				"firstRowAsHeader": false
+			},
+			"fileName": "Week-UserFullAnalysis.csv",
+			"folderPath": "output/asa2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

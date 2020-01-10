@@ -1,0 +1,54 @@
+{
+	"name": "Custom query_i682",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Source-OnPremSQL-682",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"structure": [
+			{
+				"name": "TPName",
+				"type": "String"
+			},
+			{
+				"name": "IDE",
+				"type": "String"
+			},
+			{
+				"name": "AI_BillingID",
+				"type": "Int64"
+			},
+			{
+				"name": "AI_OfferType",
+				"type": "String"
+			},
+			{
+				"name": "OrganizationName",
+				"type": "String"
+			},
+			{
+				"name": "ActiveUser",
+				"type": "String"
+			},
+			{
+				"name": "YearMonth",
+				"type": "String"
+			},
+			{
+				"name": "NumberOfCalls",
+				"type": "Int32"
+			},
+			{
+				"name": "IsInternal",
+				"type": "String"
+			},
+			{
+				"name": "Date",
+				"type": "DateTime"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

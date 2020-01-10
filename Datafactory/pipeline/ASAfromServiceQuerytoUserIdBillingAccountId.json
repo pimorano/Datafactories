@@ -1,0 +1,71 @@
+{
+	"name": "ASAfromServiceQuerytoUserIdBillingAccountId",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy-dbo-UserIdAiBillingAccountIdMappings",
+				"description": "Delete from UserIdAiBillingAccountIdMappings where Service like 'ASA'",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlSource",
+						"sqlReaderQuery": "select\n                             secondOne.TPName,\n                             \n                             secondOne.AI_BillingAccountId AS AI_BillingID,\n                             secondOne.AI_OfferType,\n                             secondOne.OrganizationName,\n                             --secondOne.IsInternal AS AI_BillingType,\n                             --firstOne.ApiVersionString,\n                                                CASE CHARINDEX('UserId/', firstOne.UserAgent)\n                                                     WHEN 0 THEN ''\n                                                       ELSE SUBSTRING(firstOne.UserAgent, CHARINDEX('UserId/', firstOne.UserAgent) + LEN('UserId/'), 36)\n                                              END as ActiveUsers,\n                             firstOne.UserAgent as UserAgent,\n                             'ASA' as Service,\n\t\t\t     'ASAVSTOOLS' as Ide,\n                             FORMAT(StartDate, 'yyyy-MM') as YearMonth,\n                             firstOne.NumberOfCalls,\n                             case secondOne.IsInternal\n                                    when '1' then 'true'\n                                    else 'false'\n                             end as IsInternal,\n                             --firstOne.SubscriptionId,\n                                                firstOne.StartDate as Date\n                             \n              from [dbo].[NRT_Prod_ApiCallsByVersionAndLanguage] as firstOne \n                        inner join [dbo].[NRT_Meta_SubscriptionMapping2] as secondOne \n                        on firstOne.SubscriptionId=secondOne.SubscriptionID \n              where firstOne.StartDate>= '08/01/2017' and (UserAgent Like '%ASAVSTOOLS%')"
+					},
+					"sink": {
+						"type": "SqlSink",
+						"writeBatchSize": 10000
+					},
+					"enableStaging": false,
+					"enableSkipIncompatibleRow": true,
+					"redirectIncompatibleRowSettings": {
+						"linkedServiceName": {
+							"referenceName": "Source-DataLakeStore-g1b",
+							"type": "LinkedServiceReference"
+						}
+					},
+					"dataIntegrationUnits": 0,
+					"translator": {
+						"type": "TabularTranslator",
+						"columnMappings": {
+							"AI_BillingID": "AI_BillingAccountId",
+							"OrganizationName": "OrganizationName",
+							"TPName": "TPName",
+							"AI_OfferType": "AI_OfferType",
+							"ActiveUsers": "UserId",
+							"Ide": "Ide"
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Customquery_ezu",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "dboUserIdAiBillingAccountIdMappingsoezu",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"parameters": {
+			"windowStart": {
+				"type": "String"
+			},
+			"windowEnd": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,47 @@
+{
+	"name": "MonthUserAdoptionSummarycsvinog",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Source-DataLakeStore-nog",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureDataLakeStoreFile",
+		"structure": [
+			{
+				"name": "Prop_0",
+				"type": "String"
+			},
+			{
+				"name": "Prop_1",
+				"type": "String"
+			},
+			{
+				"name": "Prop_2",
+				"type": "DateTime"
+			},
+			{
+				"name": "Prop_3",
+				"type": "String"
+			},
+			{
+				"name": "Prop_4",
+				"type": "Int64"
+			},
+			{
+				"name": "Prop_5",
+				"type": "Int64"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": ",",
+				"treatEmptyAsNull": true
+			},
+			"fileName": "Month-UserAdoptionSummary.csv",
+			"folderPath": "output/asa2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,47 @@
+{
+	"name": "WeekUserAdoptionSummarycsv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Source-DataLakeStore-39m",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureDataLakeStoreFile",
+		"structure": [
+			{
+				"name": "Prop_0",
+				"type": "String"
+			},
+			{
+				"name": "Prop_1",
+				"type": "String"
+			},
+			{
+				"name": "Prop_2",
+				"type": "DateTime"
+			},
+			{
+				"name": "Prop_3",
+				"type": "String"
+			},
+			{
+				"name": "Prop_4",
+				"type": "Int64"
+			},
+			{
+				"name": "Prop_5",
+				"type": "Int64"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": ",",
+				"treatEmptyAsNull": true
+			},
+			"fileName": "Week-UserAdoptionSummary.csv",
+			"folderPath": "output2/asa"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,44 @@
+{
+	"name": "SourceDataset_sv2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1_ML_pimomahi",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureBlob",
+		"structure": [
+			{
+				"name": "SystemInfo",
+				"type": "String"
+			},
+			{
+				"name": "prediction",
+				"type": "Double"
+			},
+			{
+				"name": "probability.type",
+				"type": "Int64"
+			},
+			{
+				"name": "probability.values",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "JsonFormat",
+				"filePattern": "setOfObjects",
+				"jsonPathDefinition": {
+					"SystemInfo": "$.['SystemInfo']",
+					"prediction": "$.['prediction']",
+					"probability.type": "$.['probability']['type']",
+					"probability.values": "$.['probability']['values']"
+				}
+			},
+			"fileName": "part-00000-498eac42-721f-48ef-bcac-2c0dfb878de3-c000.json",
+			"folderPath": "sparkpimoranomahipipeli-2018-08-29t01-42-38-173z/HdiSamples/HdiSamples/SensorSampleData/hvac/test.json"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

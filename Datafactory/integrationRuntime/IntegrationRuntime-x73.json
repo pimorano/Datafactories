@@ -1,0 +1,7 @@
+{
+	"name": "IntegrationRuntime-x73",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "IntegrationRuntime-x73"
+	}
+}
